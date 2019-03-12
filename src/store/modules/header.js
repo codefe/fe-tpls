@@ -2,8 +2,7 @@ import { getList } from '@/api'
 export default {
   namespaced: true,
   state: {
-    list: [],
-    fList: []
+    list: []
   },
   mutations: {
     updateList (state, data) {

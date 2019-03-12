@@ -4,7 +4,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   saveScrollPosition: true, //在启用html5 history模式的时候生效
   base: process.env.BASE_URL,
   scrollBehavior(to, from, savePosition) {// 在点击浏览器的“前进/后退”，或者切换导航的时候触发。
