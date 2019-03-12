@@ -1,28 +1,59 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header/>
+    <section class="flex">
+      <section class="flex-sideLeft"><Aside/></section>
+      <section class="flex-item"><router-view v-if="isRouterAlive" class="fadeInUp"/></section>
+      <section class="flex-sideRight"><Raside/></section>
+    </section>
+    <Footer/>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from '@/components/Header.vue';
+import Aside from '@/components/Aside.vue';
+import Raside from '@/components/Raside.vue';
+import Footer from '@/components/Footer.vue';
 export default {
-  name: 'app',
+  provide() {
+    return {
+      reload: this.reload
+    };
+  },
+  data() {
+    return {
+      isRouterAlive: true
+    };
+  },
   components: {
-    HelloWorld
+    Header,
+    Aside,
+    Raside,
+    Footer
+  },
+  methods: {
+    reload() {
+      this.isRouterAlive = false;
+      this.$nextTick(function() {
+        this.isRouterAlive = true;
+      });
+    }
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+html, body{
+  margin: 0;
+  padding: 0;
+}
+.flex-sideLeft{
+  width:140px;
+  border-right:1px solid #e8e8e8;
+  background-color:#fbfbfb;
+  text-shadow:1px 1px 0 #fff;
+}
+.flex-sideRight{
+  width:350px;
+  border-left:1px solid #e8e8e8;
 }
 </style>
