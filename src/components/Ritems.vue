@@ -1,7 +1,6 @@
 <template>
-    <div class="ritems">
+    <div class="ritems" v-if="lists && lists.length>0">
         <section v-if="flag=='one'">
-            <p></p>
             <dl>
                 <dd v-for="(rc,index) in lists" :key="index" :class="{articleDdCur: url==rc.url}">
                     <a v-if="rc.flag=='true'" target="_blank" :href="rc.url">{{rc.title}}</a>
@@ -11,7 +10,6 @@
             </dl>
         </section>
         <section v-else>
-            <p></p>
             <dl v-for="(ra,a) of lists" :key="a">
                 <dt>{{ra.step}}</dt>
                 <dd v-for="(rb,b) of ra.item" :key="b" :class="{articleDdCur: url==rb.url}">

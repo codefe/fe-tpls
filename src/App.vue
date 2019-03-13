@@ -31,12 +31,27 @@ export default {
     Raside,
     Footer
   },
+  mounted () {
+      this.btnSound()
+  },
   methods: {
     reload() {
       this.isRouterAlive = false;
       this.$nextTick(function() {
         this.isRouterAlive = true;
       });
+    },
+    btnSound() {
+        var s = document.createElement('audio');
+        s.src = '/app/sound/chime.ogg';
+        s.load();
+        document.body.appendChild(s);
+        document.querySelectorAll('.btnSound').forEach(function (item, index) {
+            item.addEventListener('mouseenter', function () {
+                s.pause();
+                s.play();
+            })
+        })
     }
   }
 };

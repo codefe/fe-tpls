@@ -1,6 +1,6 @@
 <template>
     <header class="flex head">
-        <h1><router-link to="/">前端</router-link></h1>
+        <h1><router-link class="btnSound" to="/">前端</router-link></h1>
         <nav class="flex">
             <section class="head-nav head-bg">
                 <span>教程</span>

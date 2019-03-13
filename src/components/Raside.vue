@@ -1,5 +1,5 @@
 <template>
-    <div class="raside">
+    <div class="raside" v-if="curUrl">
         <section v-if="curUrl=='article'">
             <h3>章节目录</h3>
             <Ritems :lists="listData.items" :purl="purl" :url="curPara" :flag="listData.arr?'one':'step'" />
