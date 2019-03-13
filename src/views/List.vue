@@ -16,10 +16,10 @@
             <!-- 无二级分类 -->
             <dl v-if="listData.arr=='one'" class="flex flex-start row list-item">
                 <dd class="flex" v-for="(item,index) of listData.items" :key="index">
-                    <router-link v-if="item.flag=='true'" class="flex-item tc" target="_blank" :to="item.url">
+                    <a v-if="item.flag=='true'" class="flex-item tc" target="_blank" :href="item.url">
                         <i class="ic-lock"></i>
                         <p>{{item.title}}</p>
-                    </router-link>
+                    </a>
                     <router-link v-else class="flex-item tc" :to="'/article/'+listData.subType+','+item.url">
                         <i class="ic-lock"></i>
                         <p>{{item.title}}</p>
@@ -30,10 +30,10 @@
             <dl v-else class="flex flex-start row list-item" v-for="(item,index) of listData.items" :key="index">
                 <dt>{{item.step}}</dt>
                 <dd class="flex" v-for="(itema,indexa) of item.item" :key="indexa">
-                    <router-link v-if="itema.flag=='true'" class="flex-item tc" target="_blank" :to="itema.url">
+                    <a v-if="itema.flag=='true'" class="flex-item tc" target="_blank" :href="itema.url">
                         <i class="ic-lock"></i>
                         <p>{{itema.title}}</p>
-                    </router-link>
+                    </a>
                     <router-link v-else-if="!itema.url" class="flex-item tc ano" to="#">
                         <i class="ic-lock ic-lock-open"></i>
                         <p>{{itema.title}}</p>
