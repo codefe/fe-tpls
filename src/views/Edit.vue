@@ -3,35 +3,57 @@
         <section class="navigation">
             <router-link to="/">Home</router-link>编辑文件
         </section>
-        <section class="editbox" id="form">
-            <p class="flex">
-                <label for="">标题</label><input name="subTitle" type="text">
-            </p>
-            <p class="flex">
-                <label for="">内容</label><textarea name="content" cols="30" rows="10"></textarea>
-            </p>
-            <p><button @click="saveFile">保存文件</button></p>
+        <section class="flex column editbox" id="form">
+            <section class="flex">
+                <label for="">文件名</label><input v-model="filename" name="subTitle" type="text">
+            </section>
+            <section class="flex">
+                <label for="">标题</label><input v-model="title" name="subTitle" type="text">
+            </section>
+            <section class="flex">
+                <label for="">内容</label><div id="editor" class="flex-item"></div>
+            </section>
+            <section><button @click="saveFile">保存文件</button></section>
         </section>
     </div>
 </template>
 
 <script>
+    import Editor from 'wangeditor'
     import { fun } from '@/assets/js/fun.js'
     export default {
+        data () {
+            return {
+                title: '',
+                content: '',
+                filename: 's'
+            }
+        },
+        mounted () {
+            this.content = new Editor('#editor')
+            this.content.customConfig.uploadImgShowBase64 = true
+            this.content.customConfig.showLinkImg = true //false为隐藏网络图片，只能本地上传
+            this.content.create()
+            this.content.txt.html()
+        },
         methods: {
             saveFile() {
                 document.execCommand('saveas','true','11.htm');
 				var obj = document.querySelector('#form');
 				var data = obj.querySelectorAll('input,textarea');
                 
-                var json = {sta:1,data:{}};
-				for(var i=0,len=data.length;i<len;i++){
-					json.data[data[i].name] = data[i].value;
-                }
-                if(json.data.subTitle==='' || json.data.content===''){
-                    fun.pop.alert('标题与内容不能为空！')
+                var json = {
+                    sta:1,
+                    data:{
+                        subTitle: this.title,
+                        content: this.content.txt.html()
+                    }
+                };
+				
+                if(json.data.filename==='' || json.data.subTitle==='' || json.data.content===''){
+                    fun.pop.alert('文件名,标题,内容不能为空！')
                 }else{
-                    this.download("s1-.json",JSON.stringify(json).replace(/(<!--).*?(-->)/g,''));
+                    this.download(this.filename+".json",JSON.stringify(json).replace(/(<!--).*?(-->)/g,''));
                 }
             },
             fake_click(obj) {
@@ -57,7 +79,7 @@
 <style lang="scss" scoped>
 .editbox{
     margin: 20px;
-    p{
+    section{
         margin-bottom: 20px;
         textarea{
             width: 100%;
@@ -67,7 +89,7 @@
         }
         input{
             width: 100%;
-            border: 1px solid #eee;
+            border: 1px solid #ccc;
             padding: 10px;
         }
         textarea:focus, input:focus {
@@ -75,7 +97,7 @@
             color:#01c26f;
         }
         label{
-            width: 60px;
+            width: 80px;
             padding: 10px;
         }
         button{

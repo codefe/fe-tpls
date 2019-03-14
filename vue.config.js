@@ -27,10 +27,11 @@ const cdn = {
   build: {
     css: [],
     js: [
-      'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js',
-      'https://cdn.jsdelivr.net/npm/vue-router@3.0.1/dist/vue-router.min.js',
-      'https://cdn.jsdelivr.net/npm/vuex@3.0.1/dist/vuex.min.js',
-      'https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js',
+      'https://cdn.bootcss.com/vue/2.6.8/vue.min.js',
+      'https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js',
+      'https://cdn.bootcss.com/vuex/3.1.0/vuex.min.js',
+      'https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js',
+      'https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js'
     ]
   }
 }
