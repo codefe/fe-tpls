@@ -5,8 +5,8 @@ axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
     if (response.config.method === 'get') {
         let para = response.config.url.split('=')[1];
-        if (para === 'quickNav') {
-            return Promise.resolve(response.data[para]);
+        if (para.indexOf('quickNav') === 0) {
+            return Promise.resolve(response.data.quickNav);
         } else {
             return Promise.resolve({ data: response.data, status: response.status, statusText: response.statusText });
         }

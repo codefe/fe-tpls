@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     getData () {
-      this.$store.dispatch('items/getList', '/app/data/' + this.para + '.json')
+      this.$store.dispatch('items/getList', '/app/data/' + this.para + '.json?t='+new Date().getTime())
     }
   }
 }

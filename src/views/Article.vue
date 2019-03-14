@@ -37,7 +37,7 @@ export default {
         }
     },
     created() {
-        this.routeUrl && this.updatepara(['/app/data/' + this.routeUrlParent + '/index.json','/app/data/' + this.routeUrl + '.json']);//传参数
+        this.routeUrl && this.updatepara(['/app/data/' + this.routeUrlParent + '/index.json?t='+new Date().getTime(),'/app/data/' + this.routeUrl + '.json?t='+new Date().getTime()]);//传参数
         this.getTableData().then((rs) => {
             // this.loading = false
         }).catch((err) => {

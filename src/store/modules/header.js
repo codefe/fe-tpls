@@ -11,7 +11,7 @@ export default {
   },
   actions: {
     getMenu ({ commit }) {
-      return getList('/app/data/menu.json?id=quickNav').then((res) => {
+      return getList('/app/data/menu.json?id=quickNav&t='+new Date().getTime()).then((res) => {
         commit('updateList', res)
       })
     }

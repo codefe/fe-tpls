@@ -68,7 +68,7 @@
         },
         methods: {
             getTableData() {
-                this.$store.dispatch('list/getList','/app/data/' + this.routeUrl + '/index.json');
+                this.$store.dispatch('list/getList','/app/data/' + this.routeUrl + '/index.json?t='+new Date().getTime());
             }
         }
     }

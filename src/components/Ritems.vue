@@ -41,6 +41,7 @@
         font-weight: 400;
     }
     dd{
+        margin-right: 20px;
         padding-left: 40px;
         font-size: 12px;
         overflow: hidden;
