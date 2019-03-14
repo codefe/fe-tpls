@@ -1,8 +1,8 @@
 <template>
     <ul class="nav-side">
-        <li class="flex"><router-link to="/">返回首页</router-link><span>»</span></li>
-        <li class="flex"><router-link to="/items/tools">常用工具</router-link><span>»</span></li>
-        <li class="flex"><router-link to="/items/study">学习平台</router-link><span>»</span></li>
+        <li class="flex ovhd"><router-link to="/">返回首页</router-link><span>»</span></li>
+        <li class="flex ovhd"><router-link to="/items/tools">常用工具</router-link><span>»</span></li>
+        <li class="flex ovhd"><router-link to="/items/study">学习平台</router-link><span>»</span></li>
     </ul>
 </template>
 <style lang="scss" scoped>
