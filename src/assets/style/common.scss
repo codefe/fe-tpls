@@ -26,7 +26,7 @@ sup { vertical-align:text-top; }
 sub{ vertical-align:text-bottom; }
 legend { color:#000; }
 fieldset, img { border:0; }
-button, input, select, textarea { font-size:100%; }
+button, input, select, textarea { font-size:100%; outline: 0;}
 table { border-collapse:collapse; border-spacing:0; }
 .ano{pointer-events: none;color:#ccc;cursor:not-allowed;}
 /* 中间加载动画效果 */
@@ -99,3 +99,21 @@ table { border-collapse:collapse; border-spacing:0; }
 .ani-line:hover:after{width:100%;}
 /* 图片自适应 */
 .zoomImg{display:inline-table;width:0;height:100%;padding-right: 100%;background-position: center center;background-repeat: no-repeat;background-size:cover;overflow:hidden;}
+/* pop */
+.alert-ui-bg{position: fixed;top:0px;left:0px;z-index:2000;width: 100%;height: 100%;background: rgba(0,0,0,.2);}
+.alert-ui-cont{position: fixed;top:30%;left:40%;z-index:2000;width: 250px;overflow:hidden;background: rgba(255,255,255,1);border-radius:5px;box-shadow: 0 0 8px rgba(0,0,0,.1), 0 0 200px rgb(255,255,255);}
+.alert-ui-tit{padding: 15px;text-align: center;border-bottom:1px solid #f1f4f9;}
+.alert-ui-msg{padding:25px 15px;text-align: center;}
+.alert-ui-btnc{height: 50px;overflow: hidden;}
+.alert-ui-btnc a{display:block;height:40px;line-height: 40px;cursor: pointer;font-size:16px;margin:0 10px 10px 10px;border-radius:3px;text-align:center;}
+.alert-ui-btn-ok{color:#fff;background-image:linear-gradient(#13d478,#01c26f,#13d478);}
+.alert-ui-btn-ok:hover{color:#fff;background-image:linear-gradient(#01c26f,#13d478,#01c26f);}
+.alert-hide{animation: hide 0.3s linear forwards;}
+@keyframes hide {
+    from{opacity:1;transform: scale(0.9);}
+    to    {opacity:0;transform: scale(1.3);}
+}
+@keyframes show {
+    from{opacity:0;transform: scale(1.3);}
+    to{opacity:1;transform: scale(0.9);}
+}

@@ -34,6 +34,16 @@ export default new Router({
 			path: '/items/:id',
 			name: 'items',
 			component: () => import('@/views/Items.vue')
+		},
+		{
+			path: '/edit',
+			name: 'edit',
+			component: () => import('@/views/Edit.vue')
+		},
+		{
+			path: '*',
+			name: '404',
+			component: () => import('@/views/Err.vue')
 		}
 	]
 })
