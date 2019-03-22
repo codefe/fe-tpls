@@ -27,11 +27,11 @@ const cdn = {
   build: {
     css: [],
     js: [
-      'https://cdn.bootcss.com/vue/2.6.8/vue.min.js',
-      'https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js',
-      'https://cdn.bootcss.com/vuex/3.1.0/vuex.min.js',
-      'https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js',
-      'https://cdn.bootcss.com/wangEditor/10.0.13/wangEditor.min.js'
+      'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.0/vuex.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/wangEditor/10.0.13/wangEditor.min.js'
     ]
   }
 }
